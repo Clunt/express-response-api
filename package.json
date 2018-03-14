@@ -1,0 +1,18 @@
+{
+  "name": "express-response-api",
+  "version": "1.0.0",
+  "description": "JSON API response format for Express",
+  "main": "index.js",
+  "scripts": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Clunt/express-response-api.git"
+  },
+  "author": "Clunt",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Clunt/express-response-api/issues"
+  },
+  "homepage": "https://github.com/Clunt/express-response-api#readme"
+}
