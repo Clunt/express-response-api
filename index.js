@@ -49,3 +49,29 @@ exports = module.exports = function(option) {
     next();
   }
 };
+
+var MESSAGES = {};
+exports.standard = function(req, res, next) {
+  res.api = (code, message, data) => {
+    if (typeof code === 'undefined') {
+      code = success;
+    } else if (typeof code !== 'number') {
+      data = code;
+      code = success;
+    } else if (typeof message !== 'undefined' && typeof message !== 'string') {
+      data = message;
+      message = undefined;
+    }
+    code = typeof code === 'number' ? code : success;
+    message = message || MESSAGES[code] || '';
+    data = typeof data !== 'undefined' ? data : {};
+    res.json([code, message, data]);
+  };
+  next();
+};
+
+exports.config = {
+  message: function(messages) {
+    MESSAGES = messages || {};
+  }
+};
